@@ -36,41 +36,101 @@ export default function RootLayout({
         {/* <Link href={"/caps"}>caps</Link>
         <Link href={"/hoodies"}>hoodies</Link>
         <Link href={"/t-shirts"}>t-shirts</Link> */}
+        
         <header className="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-sm border-b border-purple-500/50">
           <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
             {/* Logo/Brand */}
             <div className="text-2xl font-bold tracking-widest text-purple-400">
-              <Link href={"/"}><span className={primaryAccent}>CHORCHA-</span>MERCH</Link>
-            </div>
-
-            {/* Navigation Links */}
-            <div className="flex space-x-8">
-              <Link
-                href="/hoodies"
-                className={`text-gray-300 hover:${primaryAccent} transition duration-150`}
-              >
-                HOODIES
-              </Link>
-              <Link
-                href="/t-shirts"
-                className={`text-gray-300 hover:${primaryAccent} transition duration-150`}
-              >
-                T-SHIRTS
-              </Link>
-              <Link
-                href="/caps"
-                className={`text-gray-300 hover:${primaryAccent} transition duration-150`}
-              >
-                CAPS
+              <Link href={"/"}>
+                <span className={primaryAccent}>CHORCHA-</span>MERCH
               </Link>
             </div>
 
-            {/* Action/Icon (e.g., Cart) */}
-            <div className="text-xl text-gray-300 hover:text-purple-400 cursor-pointer">
-              🛒 {/* Shopping Cart Icon */}
+            {/* Search Bar - Centered */}
+            <div className="flex-1 max-w-sm mx-8 hidden md:block">
+              <input
+                type="text"
+                placeholder="Search your product..."
+                className={`w-full p-2 rounded-full text-sm bg-gray-800 border border-purple-500/50 focus:outline-none focus:ring-1 focus:ring-cyan-400 ${primaryAccent} placeholder-gray-500`}
+              />
+            </div>
+
+            {/* Navigation Links, Actions, and Auth */}
+            <div className="flex items-center space-x-6">
+              {/* Category Links (Kept for quick access) */}
+              <div className="hidden lg:flex space-x-6">
+                <Link
+                  href="/hoodies"
+                  className={`text-gray-300 hover:${primaryAccent} transition duration-150`}
+                >
+                  HOODIES
+                </Link>
+                <Link
+                  href="/t-shirts"
+                  className={`text-gray-300 hover:${primaryAccent} transition duration-150`}
+                >
+                  T-SHIRTS
+                </Link>
+                <Link
+                  href="/caps"
+                  className={`text-gray-300 hover:${primaryAccent} transition duration-150`}
+                >
+                  CAPS
+                </Link>
+              </div>
+
+              {/* Auth Options (Login/Signup) */}
+              <div className="hidden sm:flex space-x-4">
+                <Link
+                  href="/login"
+                  className="text-gray-300 hover:text-purple-400 transition duration-150 text-sm"
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/signup"
+                  className="px-3 py-1 bg-cyan-600 text-gray-900 rounded-full text-sm font-semibold hover:bg-cyan-500 transition duration-150"
+                >
+                  Sign Up
+                </Link>
+              </div>
+
+              {/* Cart Icon */}
+              <div className="text-xl text-gray-300 hover:text-purple-400 cursor-pointer">
+                🛒
+              </div>
             </div>
           </nav>
         </header>
+        {/* --- Secondary Navigation/Tags Section --- */}
+        <section className="bg-gray-900 border-b border-cyan-500/30 py-3">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-4 overflow-x-auto whitespace-nowrap">
+            <Link
+              href="/tags/hoodies"
+              className={`text-sm py-1 px-3 rounded-full bg-gray-800 border border-purple-500/50 hover:bg-gray-700 ${primaryAccent} transition duration-150`}
+            >
+              #Hoodies
+            </Link>
+            <Link
+              href="/tags/shirts"
+              className={`text-sm py-1 px-3 rounded-full bg-gray-800 border border-purple-500/50 hover:bg-gray-700 ${primaryAccent} transition duration-150`}
+            >
+              #Shirts
+            </Link>
+            <Link
+              href="/tags/caps"
+              className={`text-sm py-1 px-3 rounded-full bg-gray-800 border border-purple-500/50 hover:bg-gray-700 ${primaryAccent} transition duration-150`}
+            >
+              #Caps
+            </Link>
+            <Link
+              href="/tags/new-arrivals"
+              className="text-sm py-1 px-3 rounded-full bg-gray-800 border border-gray-600 hover:bg-gray-700 text-gray-400 transition duration-150"
+            >
+              #NewArrivals
+            </Link>
+          </div>
+        </section>
         {children}
       </body>
     </html>
